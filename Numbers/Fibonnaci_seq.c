@@ -6,8 +6,8 @@ sequence is of unsigned long type, the max position you can ask is 2^32 =
 4,294,967,296
 */
 
-#include <gmp.h>
 #include <stdio.h>
+#include <gmp.h>
 
 int main() {
 	unsigned long n; /* to generate the sequence up to the nth number */
@@ -16,8 +16,8 @@ int main() {
 	mpz_t fib_number; /* the fibonacci numbers to be printed */
 
 	/* Initializing GMP variables */
-	mpz_init_set_ui(n_minus1, 0);
-	mpz_init_set_ui(n_minus2, 1);
+	mpz_init_set_d(n_minus1, 0);
+	mpz_init_set_d(n_minus2, 1);
 	mpz_init(fib_number);
 
 	puts("Type the number of positions of the sequence to be printed:");
@@ -44,8 +44,6 @@ int main() {
 	}
 
 	/* Freeing memory */
-	mpz_clear(n_minus1);
-	mpz_clear(n_minus2);
-	mpz_clear(fib_number);
+	mpz_clears(n_minus1, n_minus2, fib_number);
 	return 0;
 }
